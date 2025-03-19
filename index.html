@@ -73,45 +73,50 @@
 
       .image-container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-columns: 1fr 1fr; 
         gap: 20px;
         padding: 20px;
       }
 
-      .image-container img {
+      .image-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .image-wrapper img {
         width: 100%;
         height: auto;
         border: 2px solid #FFFFFF;
-        border-radius: 5px;
+        border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
       }
 
-      .image-container img:hover {
-        transform: scale(1.05);
+      .image-wrapper img:hover {
+        transform: scale(1.3);
         box-shadow: 0 12px 16px rgba(0, 0, 0, 0.3);
       }
 
-      /* Tooltip styling for image name on hover */
-      .image-container img:hover::after {
-        content: attr(alt);
+      /* Image name overlay */
+      .image-name {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.7);
-        color: #FFFFFF;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
         padding: 10px;
-        border-radius: 5px;
         font-size: 1.2em;
-        white-space: nowrap;
-        z-index: 10;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
-      /* Position the tooltip correctly */
-      .image-container {
-        position: relative;
+      .image-wrapper:hover .image-name {
+        opacity: 1;
       }
     </style>
   </head>
@@ -134,13 +139,34 @@
       <div class="digital">
         <h2>Digital Gallery</h2>
         <div class="image-container">
-          <img src="knight_insta.png" alt="Purple Hair Knight">
-          <img src="Clouds.jpg" alt="Clouds">
-          <img src="Bo (CoA).jpg" alt="Bo the Wolf">
-          <img src="Cyclops Saga-insta.png" alt="Cyclops Saga">
-          <img src="krimson.jpg" alt="Krimson">
-          <img src="Casey Panda.png" alt="Casey's Panda">
-          <img src="Valentine_insta.png" alt="Valentine">
+          <div class="image-wrapper">
+            <img src="knight_insta.png" alt="Purple Hair Knight">
+            <span class="image-name">Purple Hair Knight</span>
+          </div>
+          <div class="image-wrapper">
+            <img src="Clouds.jpg" alt="Clouds">
+            <span class="image-name">Clouds</span>
+          </div>
+          <div class="image-wrapper">
+            <img src="Bo (CoA).jpg" alt="Bo the Wolf">
+            <span class="image-name">Bo the Wolf</span>
+          </div>
+          <div class="image-wrapper">
+            <img src="Cyclops Saga_insta.jpg" alt="Cyclops Saga">
+            <span class="image-name">Cyclops Saga</span>
+          </div>
+          <div class="image-wrapper">
+            <img src="krimson.jpg" alt="Krimson">
+            <span class="image-name">Krimson</span>
+          </div>
+          <div class="image-wrapper">
+            <img src="Casey Panda.png" alt="Casey's Panda">
+            <span class="image-name">Casey's Panda</span>
+          </div>
+          <div class="image-wrapper">
+            <img src="Valentine_insta.png" alt="Valentine">
+            <span class="image-name">Valentine</span>
+          </div>
         </div>
       </div>
     </div>
