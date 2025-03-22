@@ -13,7 +13,7 @@
         background-position: center;
         margin: 0px;
         font-family: 'KoHo', sans-serif;
-        text-align: center;
+        text-align: left;
       }
       
       .wrapper {
@@ -34,46 +34,36 @@
         margin: 0;
         color: #8554D4;
         position: relative;
-        text-align: center;
+        text-align: left;
       }
 
-      #nav {
-        clear: both;
-        padding: 0;
-        margin-bottom: 100px;
-      }
-      
-      #nav ul {
-        border-top: 2px solid #FFFFFF;
-        border-bottom: 2px solid #FFFFFF;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
+      .navbar {
         background-color: #000000;
-      }
-
-      #nav li {
-        margin: 0 10px;
-      }
-
-      #nav a {
-        text-decoration: none;
+        padding: 15px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         color: #FFFFFF;
-        font-size: 1.2em;
-        padding: 10px 50px;
-        display: block;
+        font-weight: bold;
+      }
+
+      .navbar a {
+        color: #FFFFFF;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 1.1em;
+        padding: 8px 20px;
         transition: color 0.3s ease;
       }
 
-      #nav a:hover {
+      .navbar a:hover,
+      .navbar a.active {
         color: #8554D4;
       }
 
       .image-container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
         padding: 20px;
       }
@@ -118,18 +108,29 @@
       .image-wrapper:hover .image-name {
         opacity: 1;
       }
+      
+      .digital h2 {
+        text-align: center;
+      }
+
+      @media screen and (max-width: 768px) {
+        .image-container {
+          grid-template-columns: 1fr 1fr;  /* Reduce the number of columns on smaller screens */
+        }
+      }
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <div id="nav">
-        <ul>
-          <li><a href="https://oyed18.github.io/Portfolio/">Home</a></li>
-          <li><a href="#">Illustrations</a></li>
-          <li><a href="https://oyed18.github.io/Folio-Animations/">Animations</a></li>
-          <li><a href="https://oyed18.github.io/Folio-3D/">3D Modelling</a></li>
-          <li><a href="https://oyed18.github.io/Folio-Projects/">Projects</a></li>
-        </ul>
+      <div class="navbar">
+        <div>OAA Portfolio</div> 
+        <div>
+          <a href="https://oyed18.github.io/Portfolio/" class="home">Home</a>
+          <a href="https://oyed18.github.io/Folio-Illustrations/" class="illustrations active">Illustrations</a>
+          <a href="https://oyed18.github.io/Folio-Animations/" class="animations">Animations</a>
+          <a href="https://oyed18.github.io/Folio-3D/" class="threeD">3D Modelling</a>
+          <a href="https://oyed18.github.io/Folio-Projects/" class="projects">Projects</a>
+        </div>
       </div>
 
       <div id="header">
@@ -170,5 +171,14 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // Add active class to the current navbar link
+      document.querySelectorAll('.navbar a').forEach(function(link) {
+        if (link.href === window.location.href) {
+          link.classList.add('active');
+        }
+      });
+    </script>
   </body>
 </html>
